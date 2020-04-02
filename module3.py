@@ -8,4 +8,4 @@ if studentStatus() > 50 :
 
 else:
 
-    print(f"\nUnfortunately this Student has been denied due to scores falling below requirements.\n")
+    print(f"\nUnfortunately this Student has been denied.\n")
