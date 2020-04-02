@@ -7,7 +7,6 @@ def validateGPA():
 
     if user_gpa in valid_list: 
         return (float(user_gpa) * 20)
-       
     print("Please enter a valid GPA between 2.0 and 4.0")
     return validateGPA()                            #Exception solved; return function instead of an explicit call.
 
@@ -82,5 +81,3 @@ def studentStatus():
     print(f"\n\nHere is the split:\n\nGPA points: {GPA}\nSAT points: {SAT}")
     print(f"HighSchool Quality points: {Quality}\nCurriculum Difficulty points: {Difficulty}.\n")
     return int(points)
-
-validateGPA()
