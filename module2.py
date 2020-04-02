@@ -46,53 +46,55 @@ def validateAlumni(alumni):     #Validate Alumni Function
          return 999                     #Returning a random number as flag if wrong value is entered
 
 
-points=0
-print("Module 2 of college admission starts here\n\n")
+def module2score():
+    points=0
+    print("Module 2 of college admission starts here\n\n")
 
 
-state=input("If the student is state resident please enter otherwise enter the state:")
-geoPoints=validateGeography(state)
+    state=input("If the student is state resident please enter otherwise enter the state:")
+    geoPoints=validateGeography(state)
 
 
-flag = True                                         #Flag variable to check if correct value is entered 
-while flag:                                         #While loop until correct value is entered
-    essayScore= input("Enter essay score: ")
-    essayPoint= validateEssayScore(essayScore)
-    if essayPoint==999:
-        flag=True
-    else:
-        flag=False
+    flag = True                                         #Flag variable to check if correct value is entered 
+    while flag:                                         #While loop until correct value is entered
+        essayScore= input("Enter essay score: ")
+        essayPoint= validateEssayScore(essayScore)
+        if essayPoint==999:
+            flag=True
+        else:
+            flag=False
 
-flag=True
-while flag:
-    miscVenture = input("Enter any Miscellaneous venture: ")
-    miscScore = validateMiscVenture(miscVenture)
-    if miscScore==999:
-        flag=True
-    else:
-        flag=False
+    flag=True
+    while flag:
+        miscVenture = input("Enter any Miscellaneous venture: ")
+        miscScore = validateMiscVenture(miscVenture)
+        if miscScore==999:
+            flag=True
+        else:
+            flag=False
 
 
-flag=True
-while flag:
-    leadership = input("Enter leadership/service: ")
-    lsScore = validateLeadership(leadership)
-    if lsScore==999:
-        flag=True
-    else:
-        flag=False
+    flag=True
+    while flag:
+        leadership = input("Enter leadership/service: ")
+        lsScore = validateLeadership(leadership)
+        if lsScore==999:
+            flag=True
+        else:
+            flag=False
 
-flag=True
-while flag:
-    alumni = input("Enter Alumni status (Legacyor Other): ")
-    alumniScore = validateAlumni(alumni)
-    if alumniScore==999:
-        flag=True
-    else:
-        flag=False
+    flag=True
+    while flag:
+        alumni = input("Enter Alumni status (Legacyor Other): ")
+        alumniScore = validateAlumni(alumni)
+        if alumniScore==999:
+            flag=True
+        else:
+            flag=False
 
-points = geoPoints + essayPoint + miscScore + lsScore + alumniScore
+    points = geoPoints + essayPoint + miscScore + lsScore + alumniScore
 
-print(f"\n\nTotal points the student earned are, {points}.")                                                        #Printing total points
-print(f"\n\nHere is the split:\nGeography points: {geoPoints}\nEssay Point: {essayPoint}")                          #Printing seprate points
-print(f"Misc Venture points: {miscScore}\nLeadership points: {lsScore}\nAlumni Points: {alumniScore}")
+    print(f"\n\nTotal points the student earned are, {points}.")                                                        #Printing total points
+    print(f"\n\nHere is the split:\nGeography points: {geoPoints}\nEssay Point: {essayPoint}")                          #Printing seprate points
+    print(f"Misc Venture points: {miscScore}\nLeadership points: {lsScore}\nAlumni Points: {alumniScore}")
+    return points
