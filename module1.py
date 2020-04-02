@@ -10,7 +10,7 @@ def validateGPA():
        
     else:
         print("Please enter a valid GPA between 2.0 and 4.0")
-        return validateGPA()
+        return validateGPA()                            #Exception solved; return function instead of an explicit call.
 
 
 def validateSAT():
@@ -76,12 +76,10 @@ def studentStatus():
     SAT = validateSAT()
     Quality = validateHighSchoolQuality()
     Difficulty = validateDifficultyOfCurriculum()
-    
-    return(GPA + SAT + Quality + Difficulty)
 
-GPA = validateGPA()
-SAT = validateSAT()
-Quality = validateHighSchoolQuality()
-Difficulty = validateDifficultyOfCurriculum()
+    points = GPA + SAT + Quality + Difficulty
+
     
-print(GPA + SAT + Quality + Difficulty)
+    print(f"\n\nTotal points the student earned are, {points}.") 
+    print(f"\n\nHere is the split:\n\nGPA points: {GPA}\nSAT points: {SAT}")
+    print(f"HighSchool Quality points: {Quality}\nCurriculum Difficulty points: {Difficulty}.\n")
