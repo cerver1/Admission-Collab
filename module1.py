@@ -1,9 +1,6 @@
-#import Numpy
+#Module 1
 
-#if you don't have numpy installed you'll need to do so
-#use this line within your cmd: python -m pip install Numpy
-
-def validateGPA():
+def validateGPA():  
     user_gpa = input("Please enter your GPA: ")
     valid_gpa = "2.0,2.1,2.2,2.3,2.4,2.5,2.6,2.7,2.8,2.9,3.0,3.1,3.2,3.3,3.4,3.5,3.6,3.7,3.8,3.9,4.0"
     valid_list = valid_gpa.split(',')
@@ -13,7 +10,8 @@ def validateGPA():
        
     else:
         print("Please enter a valid GPA between 2.0 and 4.0")
-        validateGPA()
+        return validateGPA()
+
 
 def validateSAT():
 
@@ -32,8 +30,7 @@ def validateSAT():
         return(12)
     else: 
         print("Your SAT score wasn't between 400..1600: ")
-        validateGPA()
-        #validateSAT()
+        return validateSAT()
 
 
 def validateHighSchoolQuality():
@@ -54,8 +51,7 @@ def validateHighSchoolQuality():
         return(10)
     else: 
         print("HSQ score wasn't between 1..5")
-        validateGPA()
-        #validateHighSchoolQuality()
+        return validateHighSchoolQuality()
 
 def validateDifficultyOfCurriculum():
 
@@ -71,8 +67,7 @@ def validateDifficultyOfCurriculum():
         return(2)
     else: 
         print("Please enter a valid DOC score between -2..1")
-        validateGPA()
-        #validateDifficultyOfCurriculum()
+        return validateDifficultyOfCurriculum()
 
 
 def studentStatus():
@@ -83,3 +78,10 @@ def studentStatus():
     Difficulty = validateDifficultyOfCurriculum()
     
     return(GPA + SAT + Quality + Difficulty)
+
+GPA = validateGPA()
+SAT = validateSAT()
+Quality = validateHighSchoolQuality()
+Difficulty = validateDifficultyOfCurriculum()
+    
+print(GPA + SAT + Quality + Difficulty)
