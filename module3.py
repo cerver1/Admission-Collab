@@ -9,9 +9,5 @@ if totalPoints> 100 :
 
 else:
 
-<<<<<<< HEAD
     print(f"\nUnfortunately this Student has been denied.\n")
-=======
-    print(f"\nUnfortunately this Student has been denied due to scores falling below requirements.\n")
     print(totalPoints)
->>>>>>> refs/remotes/origin/master
