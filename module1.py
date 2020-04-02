@@ -79,7 +79,7 @@ def studentStatus():
 
     points = GPA + SAT + Quality + Difficulty
 
-    
     print(f"\n\nTotal points the student earned are, {points}.") 
     print(f"\n\nHere is the split:\n\nGPA points: {GPA}\nSAT points: {SAT}")
     print(f"HighSchool Quality points: {Quality}\nCurriculum Difficulty points: {Difficulty}.\n")
+    return points
