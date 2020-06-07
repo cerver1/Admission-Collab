@@ -3,8 +3,8 @@ from module2 import module2score
 
 totalPoints = studentStatus() + module2score()
 
-if totalPoints> 100 :
-    
+if totalPoints > 100:
+
     print(f"\nThis Student has been admitted!\n")
 
 else:

@@ -1,32 +1,37 @@
-#Module 2
+# Module 2
 
-def validateGeography(state):           #Validate Geography Function
+global alumni_score, ls_score, misc_score, essay_point
+
+
+def validateGeography(state):  # Validate Geography Function
     if state == "State Resident":
         return 10
     else:
         return 0
 
-def validateEssayScore(essayScore):     #Validate Essay Score Function
-    if essayScore == "Very Good":
+
+def validateEssayScore(essay_score):  # Validate Essay Score Function
+    if essay_score == "Very Good":
         return 1
-    elif essayScore == "Excellent":
+    elif essay_score == "Excellent":
         return 2
-    elif essayScore == "Outstanding":
+    elif essay_score == "Outstanding":
         return 3
     else:
-         return 999                     #Returning a random number as flag if wrong value is entered
+        return 999  # Returning a random number as flag if wrong value is entered
 
-def validateMiscVenture(miscVenture):
-    twentyPointList = ["Socioeconomic disadvantage","Scholarship athlete","Provost's discretion"]
-    if miscVenture in twentyPointList:
+
+def validateMiscVenture(misc_venture):
+    twenty_point_list = ["Socioeconomic disadvantage", "Scholarship athlete", "Provost's discretion"]
+    if misc_venture in twenty_point_list:
         return 20
-    elif miscVenture=="Men in Nursing":
+    elif misc_venture == "Men in Nursing":
         return 5
     else:
         return 999
 
 
-def validateLeadership(leadership):     #Validate Leadership Function
+def validateLeadership(leadership):  # Validate Leadership Function
     if leadership == "National":
         return 5
     elif leadership == "State":
@@ -34,67 +39,65 @@ def validateLeadership(leadership):     #Validate Leadership Function
     elif leadership == "Regional":
         return 2
     else:
-         return 999                     #Returning a random number as flag if wrong value is entered
+        return 999  # Returning a random number as flag if wrong value is entered
 
 
-def validateAlumni(alumni):     #Validate Alumni Function
+def validateAlumni(alumni):  # Validate Alumni Function
     if alumni == "Legacy":
         return 4
     elif alumni == "Other":
         return 1
     else:
-         return 999                     #Returning a random number as flag if wrong value is entered
+        return 999  # Returning a random number as flag if wrong value is entered
 
 
 def module2score():
-    points=0
+    global alumni_score, ls_score, misc_score, essay_point
+
     print("Module 2 of college admission starts here\n\n")
 
+    state = input("If the student is state resident please enter otherwise enter the state:")
+    geo_points = validateGeography(state)
 
-    state=input("If the student is state resident please enter otherwise enter the state:")
-    geoPoints=validateGeography(state)
-
-
-    flag = True                                         #Flag variable to check if correct value is entered 
-    while flag:                                         #While loop until correct value is entered
-        essayScore= input("Enter essay score: ")
-        essayPoint= validateEssayScore(essayScore)
-        if essayPoint==999:
-            flag=True
+    flag = True  # Flag variable to check if correct value is entered
+    while flag:  # While loop until correct value is entered
+        essay_score = input("Enter essay score: ")
+        essay_point = validateEssayScore(essay_score)
+        if essay_point == 999:
+            flag = True
         else:
-            flag=False
+            flag = False
 
-    flag=True
+    flag = True
     while flag:
-        miscVenture = input("Enter any Miscellaneous venture: ")
-        miscScore = validateMiscVenture(miscVenture)
-        if miscScore==999:
-            flag=True
+        misc_venture = input("Enter any Miscellaneous venture: ")
+        misc_score = validateMiscVenture(misc_venture)
+        if misc_score == 999:
+            flag = True
         else:
-            flag=False
+            flag = False
 
-
-    flag=True
+    flag = True
     while flag:
         leadership = input("Enter leadership/service: ")
-        lsScore = validateLeadership(leadership)
-        if lsScore==999:
-            flag=True
+        ls_score = validateLeadership(leadership)
+        if ls_score == 999:
+            flag = True
         else:
-            flag=False
+            flag = False
 
-    flag=True
+    flag = True
     while flag:
         alumni = input("Enter Alumni status (Legacyor Other): ")
-        alumniScore = validateAlumni(alumni)
-        if alumniScore==999:
-            flag=True
+        alumni_score = validateAlumni(alumni)
+        if alumni_score == 999:
+            flag = True
         else:
-            flag=False
+            flag = False
 
-    points = geoPoints + essayPoint + miscScore + lsScore + alumniScore
+    points = geo_points + essay_point + misc_score + ls_score + alumni_score
 
-    print(f"\n\nTotal points the student earned are, {points}.")                                                        #Printing total points
-    print(f"\n\nHere is the split:\nGeography points: {geoPoints}\nEssay Point: {essayPoint}")                          #Printing seprate points
-    print(f"Misc Venture points: {miscScore}\nLeadership points: {lsScore}\nAlumni Points: {alumniScore}")
+    print(f"\n\nTotal points the student earned are, {points}.")  # Printing total points
+    print(f"\n\nHere is the split:\nGeography points: {geo_points}\nEssay Point: {essay_point}")
+    print(f"Misc Venture points: {misc_score}\nLeadership points: {ls_score}\nAlumni Points: {alumni_score}")
     return points
